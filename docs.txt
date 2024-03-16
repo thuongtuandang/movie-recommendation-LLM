@@ -1,0 +1,10 @@
+docker build -t movie-recommendation-app .
+docker run -d -p 8000:8000 movie-recommendation-app
+
+docker build -t movie-recommendation-model .
+docker run -d -p 8001:8001 movie-recommendation-model
+
+docker build -t movie-recommendation-ui .
+docker run -d -p 6000:6000 movie-recommendation-ui
+
+docker run -p 6333:6333 qdrant/qdrant
