@@ -6,6 +6,7 @@ from qdrant_client import QdrantClient
 from utilities import get_vector, bot_response, database_search, answer_with_query
 from torch.nn.functional import cosine_similarity
 import logging
+from pydantic import BaseModel
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -22,37 +23,42 @@ tokenizer.pad_token = tokenizer.eos_token
 filter_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Connect to the Qdrant database
-client = QdrantClient(host='host.docker.internal', port=6333)
+# Use this for docker
+# client = QdrantClient(host='host.docker.internal', port=6333)
+
+# Use this to run locally
+client = QdrantClient(host='localhost', port=6333)
 
 # Vectorization of "movie recommendation"
 valid_query = "movie recommendation"
 valid_vector = get_vector(valid_query, filter_model)
 valid_vector.shape
 
-intentions = [
-    "Can you recommend to me a movie similar to Harry Potter?"
-]
-
 app = FastAPI()
 
-@app.get("/")
-async def read_root():
-    logger.info("Handling request to the root endpoint")
+# Define TextItem class with Pydantic
+# This expects a JSON object with a text field
 
-    for intention in intentions:
-        intention_vector = get_vector(intention, filter_model)
-        similarity = cosine_similarity(intention_vector.unsqueeze(0), valid_vector.unsqueeze(0))
-        logger.debug(f"Question: {intention}")
-        if similarity < 0.5:
-            prompt = f"Answer the following question:\n{intention}"
-            logger.debug(bot_response(prompt, model, tokenizer))
-        if similarity >= 0.5:
-            prompt = f"For the information mentioned, describe its genres and any notable themes:\n{intention}"
-            bot_answer = bot_response(prompt, model, tokenizer)
-            logger.debug(f"First answer:\n{bot_answer}")
-            results = database_search(bot_answer, client, filter_model)
-            evidence_list = answer_with_query(results)
-            logger.debug(f"Database search results:\n{evidence_list}")
-        logger.info("============================================================")
-        return {"Hello": "World"}
+class TextItem(BaseModel):
+    text: str
+
+@app.post("/send_text")
+async def send_text(item: TextItem):
+    # Vectorize and compute the similarity to movie recommendation
+    intention = item.text
+    intention_vector = get_vector(intention, filter_model)
+    similarity = cosine_similarity(intention_vector.unsqueeze(0), valid_vector.unsqueeze(0))
+
+    if similarity < 0.5:
+        prompt = f"Answer the following question:\n{intention}"
+        response = bot_response(prompt, model, tokenizer)
+        response = response.replace("<pad>", "").strip()
+        return {"category": "0", "response": response}
+    if similarity >= 0.5:
+        prompt = f"For the information mentioned, describe its genres and any notable themes:\n{intention}"
+        bot_answer = bot_response(prompt, model, tokenizer)
+        bot_answer = bot_answer.replace("<pad>", "").strip()
+        results = database_search(bot_answer, client, filter_model)
+        evidence_list = answer_with_query(results)
+        return {"category": "1", "response": bot_answer, "results": evidence_list}
         

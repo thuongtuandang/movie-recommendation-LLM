@@ -35,6 +35,7 @@ def database_search(input_text, client, filter_model):
     )
     for idx, hit in enumerate(hits):
         result = {}
+        result['index'] = idx + 1
         result['original_title'] = hit.payload['original_title']
         result['genres'] = hit.payload['genres']
         result['overview'] = hit.payload['overview']
@@ -43,5 +44,5 @@ def database_search(input_text, client, filter_model):
 
 def answer_with_query(results):
     # Constructing a detailed prompt that structures the results as individual pieces of evidence
-    evidence_list = "\n".join([f"Title: {result['original_title']}\nGenres: {result['genres']}\nOverview: {result['overview']}" for result in results])
+    evidence_list = "\n".join([f"index: {result['index']}\nTitle: {result['original_title']}\nGenres: {result['genres']}\nOverview: {result['overview']}" for result in results])
     return evidence_list
