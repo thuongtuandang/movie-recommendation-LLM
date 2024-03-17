@@ -15,8 +15,8 @@ def bot_response(prompt, model, tokenizer):
         **inputs,
         max_length=1000,
         num_return_sequences=1,
-        temperature=0.1,  # Adjust for creativity
-        top_p=0.1,  # Nucleus sampling
+        # temperature=0.1,  # Adjust for creativity
+        # top_p=0.1,  # Nucleus sampling
         top_k=50,  # Top-k sampling
         no_repeat_ngram_size=2  # Prevent repeating n-grams
     )
