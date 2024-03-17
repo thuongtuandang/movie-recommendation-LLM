@@ -1,7 +1,7 @@
-WITH DOCKER AND WITHOUT DOCKER SET UP
+DOCKER SET UP
 
 In this branch, we will explain what we need to change compared to the version without docker
-Docker files are available in frontend, backend and model_service
+Docker files are available in frontend, backend and model_service together with pipfiles
 
 QDRANT DATABASE
 
