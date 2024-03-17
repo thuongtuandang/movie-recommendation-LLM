@@ -16,6 +16,8 @@ django = "*"
 fastapi = "*"
 uvicorn = "*"
 sentencepiece = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

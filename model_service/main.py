@@ -24,10 +24,10 @@ filter_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Connect to the Qdrant database
 # Use this for docker
-# client = QdrantClient(host='host.docker.internal', port=6333)
+client = QdrantClient(host='host.docker.internal', port=6333)
 
 # Use this to run locally
-client = QdrantClient(host='localhost', port=6333)
+# client = QdrantClient(host='localhost', port=6333)
 
 # Vectorization of "movie recommendation"
 valid_query = "movie recommendation"

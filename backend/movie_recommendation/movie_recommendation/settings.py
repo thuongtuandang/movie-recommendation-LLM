@@ -54,7 +54,8 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Adjust the port if your React app runs on a different one
+    "http://localhost:3000",  # Without docker
+    "http://host.docker.internal:3000", # With docker
 ]
 
 ROOT_URLCONF = 'movie_recommendation.urls'

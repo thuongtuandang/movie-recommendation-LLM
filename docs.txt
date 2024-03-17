@@ -1,17 +1,46 @@
-docker build -t movie-recommendation-app .
-docker run -d -p 8000:8000 movie-recommendation-app
+WITH DOCKER AND WITHOUT DOCKER SET UP
 
-docker build -t movie-recommendation-model .
-docker run -d -p 8001:8001 movie-recommendation-model
-uvicorn main:app --host 0.0.0.0 --port 8001
-Use this to define qdrant client with docker
-client = QdrantClient(host='host.docker.internal', port=6333)
-Without docker
-client = QdrantClient(host='localhost', port=6333)
+In this branch, we will explain what we need to change compared to the version without docker
+Docker files are available in frontend, backend and model_service
+
+QDRANT DATABASE
+
+docker run -p 6333:6333 qdrant/qdrant
+
+Run movies_metadata.ipynb to create vector db, you can view it with this link
+
+http://localhost:6333/dashboard#/collections/books
+
+FRONTEND WITH REACT
 
 docker build -t movie-recommendation-ui .
 docker run -d -p 3000:3000 movie-recommendation-ui
+const API_URL = 'http://localhost:8000/send_message/';
 
-docker run -p 6333:6333 qdrant/qdrant
-run movies_metadata.ipynb to create vector db
-http://localhost:6333/dashboard#/collections/books
+BACKEND WITH DJANGO
+
+docker build -t movie-recommendation-app .
+docker run -d -p 8000:8000 movie-recommendation-app
+
+In settings.py, add
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://host.docker.internal:3000", # just in case
+]
+
+In send_message/views: replace localhost by host.docker.internal (for mac/windows)
+
+response = requests.post('http://host.docker.internal:8001/send_text', json={'text': text})
+
+
+MODEL_SERVICE
+
+docker build -t movie-recommendation-model .
+docker run -d -p 8001:8001 movie-recommendation-model
+
+Use this to define qdrant client with docker
+client = QdrantClient(host='host.docker.internal', port=6333)
+
+Without docker
+client = QdrantClient(host='localhost', port=6333)

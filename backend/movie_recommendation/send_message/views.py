@@ -11,9 +11,12 @@ class SendMessageView(APIView):
             data = request.data  # You can use request.data instead of json.loads(request.body)
             text = data.get("text")
 
-            # The FastAPI service is running on http://localhost:8001/send_text
+            # The FastAPI service is running on http://localhost:8001/send_text without using docker
             # and expects a JSON with a key 'text'
-            response = requests.post('http://localhost:8001/send_text', json={'text': text})
+            # response = requests.post('http://localhost:8001/send_text', json={'text': text})
+
+            # Using docker
+            response = requests.post('http://host.docker.internal:8001/send_text', json={'text': text})
 
             # Check if the request to the FastAPI service was successful
             if response.status_code == 200:

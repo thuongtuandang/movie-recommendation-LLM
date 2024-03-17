@@ -4,7 +4,8 @@ import './App.css';
 function App() {
   const [text, setText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false); 
+  const [isSearching, setIsSearching] = useState(false);
+  // This URL is used without docker 
   const API_URL = 'http://localhost:8000/send_message/';
 
   const handleSearch = async (e) => {
