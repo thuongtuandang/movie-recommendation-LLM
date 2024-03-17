@@ -5,6 +5,7 @@ docker build -t movie-recommendation-model .
 docker run -d -p 8001:8001 movie-recommendation-model
 
 docker build -t movie-recommendation-ui .
-docker run -d -p 6000:6000 movie-recommendation-ui
+docker run -d -p 3000:3000 movie-recommendation-ui
 
 docker run -p 6333:6333 qdrant/qdrant
+http://localhost:6333/dashboard#/collections/books
