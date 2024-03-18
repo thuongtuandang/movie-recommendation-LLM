@@ -18,6 +18,7 @@ uvicorn = "*"
 sentencepiece = "*"
 django-cors-headers = "*"
 djangorestframework = "*"
+accelerate = "*"
 
 [dev-packages]
 

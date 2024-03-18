@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForSeq2SeqLM, AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer
 import sentencepiece
 from qdrant_client import QdrantClient
@@ -7,20 +7,41 @@ from utilities import get_vector, bot_response, database_search, answer_with_que
 from torch.nn.functional import cosine_similarity
 import logging
 from pydantic import BaseModel
+import torch
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Load the model with bits and bytes config
-MODEL_NAME = 'google/flan-t5-small'
+# # Load the Flan-t5-small if your resources are limited
+# MODEL_NAME = 'google/flan-t5-small'
 
-model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+# model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+
+# # Define tokenizer
+# tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
+# tokenizer.pad_token = tokenizer.eos_token
+
+# Load the MiniChat model
+MODEL_NAME = "GeneZC/MiniChat-3B"
+
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME,
+    device_map="auto",
+    # device_map="cpu",
+    trust_remote_code=True,
+)
+# device = "mps" if torch.backends.mps.is_available() else "cpu"
+# model = model.to(device)
+
+# device = "cuda" if torch.cuda.is_available() else "cpu"
+# model = model.to(device)
 
 # Define tokenizer
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
 tokenizer.pad_token = tokenizer.eos_token
 
 filter_model = SentenceTransformer('all-MiniLM-L6-v2')
+
 
 # Connect to the Qdrant database
 # Use this for docker
