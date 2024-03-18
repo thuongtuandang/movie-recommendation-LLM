@@ -18,21 +18,21 @@ The docker images are available at the branch 'docker-setup', and the project is
 
 Note that building a (vector) database alone is not enough to solve this problem, because it is not exact keyword matching and we need an LLM to give relevant information to perform the search. Here is how I handle the problem
 
-Step 0. Build vector databases with Qdrant. We can use sentence transformer to transform the neccessary fields to vectors. It is done relatively fast. The movie database I am using have more than 45.000 rows, and without GPUs, from overviews, we can create a vector database with sentence transformer (dimension is 384) within 10 minutes.
+- Step 0. Build vector databases with Qdrant. We can use sentence transformer to transform the neccessary fields to vectors. It is done relatively fast. The movie database I am using have more than 45.000 rows, and without GPUs, from overviews, we can create a vector database with sentence transformer (dimension is 384) within 10 minutes.
 
-Step 1. Determine all intentions related to each database (for example: movie recommendation for movie database, helps for FAQ database)
+- Step 1. Determine all intentions related to each database (for example: movie recommendation for movie database, helps for FAQ database)
 
-Step 2. For each intention, choose a key query and use sentence transformer to transform this to vector. In our case, the key query is "movie recommendation".
+- Step 2. For each intention, choose a key query and use sentence transformer to transform this to vector. In our case, the key query is "movie recommendation".
 
-Step 3. For each user's input, we use sentence transformer to transform this to vector and compute the similarity of the input with each key query.
+- Step 3. For each user's input, we use sentence transformer to transform this to vector and compute the similarity of the input with each key query.
 
-Step 4. Use an LLM to give more relevant information about user's input with suitable prompt based on task filter. For example, if user's input is "recommend to me a movie similar to Harry Potter", we cannot perform any search, we need more information, for example, about the themes and genres of the movie.
+- Step 4. Use an LLM to give more relevant information about user's input with suitable prompt based on task filter. For example, if user's input is "recommend to me a movie similar to Harry Potter", we cannot perform any search, we need more information, for example, about the themes and genres of the movie.
 
-Step 5. Perform vector search with relevant information from the LLM.
+- Step 5. Perform vector search with relevant information from the LLM.
 
-Step 6 (optional). Make a prompt with user's input and LLM's response and feed it to the LLM to generate coherent results.
+- Step 6 (optional). Make a prompt with user's input and LLM's response and feed it to the LLM to generate coherent results.
 
-Step 7. Return the results.
+- Step 7. Return the results.
 
 # Project structure
 
