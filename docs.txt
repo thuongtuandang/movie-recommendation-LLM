@@ -1,8 +1,12 @@
+Here are steps for running the project without docker. For docker, switch to the branch 'docker-setup'.
+
 QDRANT SETUP
 
 docker run -p 6333:6333 qdrant/qdrant
 
-run movies_metadata.ipynb to create vector db, link to your vector db
+run movies_metadata.ipynb to create vector db. 
+
+Link to your vector db
 
 http://localhost:6333/dashboard#/collections/books
 
@@ -17,10 +21,4 @@ python manage.py runserver
 START FRONTEND
 
 npm start
-
-Without docker
-client = QdrantClient(host='localhost', port=6333)
-
-docker build -t movie-recommendation-ui .
-docker run -d -p 3000:3000 movie-recommendation-ui
 
