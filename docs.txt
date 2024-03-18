@@ -15,21 +15,20 @@ FRONTEND WITH REACT
 
 docker build -t movie-recommendation-ui .
 docker run -d -p 3000:3000 movie-recommendation-ui
-const API_URL = 'http://localhost:8000/send_message/';
 
 BACKEND WITH DJANGO
 
 docker build -t movie-recommendation-app .
 docker run -d -p 8000:8000 movie-recommendation-app
 
-In settings.py, add
+In settings.py, I added
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://host.docker.internal:3000", # just in case
 ]
 
-In send_message/views: replace localhost by host.docker.internal (for mac/windows)
+In send_message/views, I replaced localhost by host.docker.internal, and the code became
 
 response = requests.post('http://host.docker.internal:8001/send_text', json={'text': text})
 
@@ -38,9 +37,3 @@ MODEL_SERVICE
 
 docker build -t movie-recommendation-model .
 docker run -d -p 8001:8001 movie-recommendation-model
-
-Use this to define qdrant client with docker
-client = QdrantClient(host='host.docker.internal', port=6333)
-
-Without docker
-client = QdrantClient(host='localhost', port=6333)
