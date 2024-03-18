@@ -16,7 +16,7 @@ It is a full-stack project with
 
 The docker images are available at the branch 'docker-setup', and the project is more or less ready for production. We can easily scale, for example, by using any database to save (user's input, bot's response) pairs with ratings for fien-tuning process if needed.
 
-Note that building a (vector) database alone is not enough to solve this problem, because it is not exact keyword matching and we need an LLM to give relevant information to perform the search. Here is how I handle the problem
+Note that building a (vector) database alone is not enough to solve this problem. For example, with user's input 'recommend to me movies that make me cry', exact keyword matching can't solve it and we need an LLM to give relevant information (for example, overviews and genres) to perform vector search. Here is how I handle the problem
 
 - Step 0. Build vector databases with Qdrant. We can use sentence transformer to transform the neccessary fields to vectors. It is done relatively fast. The movie database I am using have more than 45.000 rows, and without GPUs, from overviews, we can create a vector database with sentence transformer (dimension is 384) within 10 minutes.
 
