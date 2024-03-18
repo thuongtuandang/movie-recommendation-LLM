@@ -14,7 +14,7 @@ It is a full-stack project with
 
 - React for frontend
 
-The docker images are available at the branch 'docker-setup', and the project is more or less ready for production. We can easily scale, for example, by using any database to save (user's input, bot's response) pairs with ratings for fien-tuning process if needed.
+The docker images are available at the branch 'docker-setup', and the project is more or less ready for production. We can easily scale, for example, by using any database to save (user's input, bot's response) pairs with ratings for fine-tuning process if needed.
 
 Note that building (vector) databases alone is not enough to solve this problem. For example, with user's input 'recommend to me movies that make me cry', exact keyword matching can't solve it and we need an LLM to give relevant information (for example, overviews and genres) to perform vector search. Here is how I handle the problem
 
