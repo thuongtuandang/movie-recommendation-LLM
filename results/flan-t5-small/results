@@ -1,0 +1,198 @@
+</s>
+torch.Size([384])
+Question: Can you recommend to me a movie similar to Harry Potter?
+/Users/khanhdam/.local/share/virtualenvs/movie-recommendation-LLM-K7t7D6Dz/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:410: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/Users/khanhdam/.local/share/virtualenvs/movie-recommendation-LLM-K7t7D6Dz/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:415: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.1` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+First answer:
+The Harry Potter series is a great adventure film.
+Databse search results:
+Title: King Kong
+Genres: Action, Adventure, Drama, Horror
+Overview: An adventure film about a film crew in search of a monster on a remote island. The crew finds King Kong and decides to take him back to New York as a money making spectacle. The film is a masterpiece of Stop-Motion in filmmaking history and inspired a line of King Kong films.
+Title: Disaster!
+Genres: Action, Animation, Comedy, Science Fiction
+Overview: A spoof of disaster films, an asteroid is coming towards earth and Harry Bottoms is in charge of saving us all...again...
+============================================================
+Question: What's the weather like today?
+a sunny day
+============================================================
+Question: Book a table for two at a Mexican restaurant tonight.
+I'm not sure if I can afford it. I think I will be able to afford the food.
+============================================================
+Question: Tell me a joke.
+a snarky taylor
+============================================================
+Question: How can I reset my password?
+Use a swab of the password to reset it.
+============================================================
+Question: Play some music from the 90s.
+i love a lot of symphonic music
+============================================================
+Question: What was the highest-grossing film in 2020?
+saturday night
+============================================================
+Question: Find me a flight to New York next weekend.
+i want to go to the san francisco airport
+============================================================
+Question: I need a recipe for a chocolate cake.
+I need a chocolate cake.
+============================================================
+Question: What's the latest news on technology?
+Technology is booming
+============================================================
+Question: Show me my photos from Paris.
+i love the symphonic asian tasmanian et al.
+============================================================
+Question: How do I make a Manhattan cocktail?
+Mix the ingredients together and add the cocktail mix.
+============================================================
+Question: Suggest a good workout for abs.
+a squat
+============================================================
+Question: What are some vegan restaurants nearby?
+a vegan restaurant
+============================================================
+Question: Is there a good comedy movie to watch?
+First answer:
+Comedy
+Databse search results:
+Title: Honigmond
+Genres: Comedy
+Overview: German Comedy
+Title: Colpo grosso, grossissimo...anzi probabile
+Genres: Comedy
+Overview: Italian comedy
+============================================================
+Question: I want to learn Python programming.
+i want to learn Python programming.
+============================================================
+Question: Where can I watch The Office?
+The Office
+============================================================
+Question: Give me directions to the nearest gas station.
+PHX - 770-80-90
+============================================================
+Question: What are the symptoms of COVID-19?
+a rash
+============================================================
+Question: Tell me about the life of Albert Einstein.
+Albert Einstein was a German physicist and astronomer.
+============================================================
+Question: Show me the latest horror films.
+slasher flicks
+============================================================
+Question: What animated movies are recommended for kids?
+First answer:
+animated movies
+Databse search results:
+Title: Fantasmagorie
+Genres: Animation
+Overview: The first all-animated film in history, a series of scenes without much narrative structure, but morphing into each other.
+Title: Tatsumi
+Genres: Animation, History
+Overview: Animated film based on the life and stories of Manga writer Yoshihiro Tatsumi who revolutionised the art form with darker, more adult stories. The film animates several of his stories
+============================================================
+Question: List all movies starring Tom Hanks.
+First answer:
+List the movies starring Tom Hanks.
+Databse search results:
+Title: The Last Ride
+Genres: Drama, Action
+Overview: The final days of Hank Williams.
+Title: A Personal Journey with Martin Scorsese Through American Movies
+Genres: Documentary
+Overview: Martin Scorsese celebrates American movies from the silent classics to the Hollywood of the Seventies. Films featured include: 'The Searchers', 'Citizen Kane', 'Intolerance' and 'The Crowd'.
+============================================================
+Question: Who directed Pulp Fiction?
+john s. wilson
+============================================================
+Question: Find movies similar to La La Land.
+First answer:
+La La Land is a romantic comedy film directed by Robert De Niro and starring Robert Duvall, Robert Downey, and John Carney.
+Databse search results:
+Title: Going Down in La-La Land
+Genres: Drama, Comedy
+Overview: Based on the novel by Andy Zeffer, "Going Down in LA-LA Land" is a riveting and uncensored look at Hollywood. It is a story that reveals how friendships sustain us and keep us going. It is a tale that reflects our celebrity-obsessed culture. It is a revealing look at some people's desire to be loved, adored, and adulated at any cost. Readers have grown to adore the flawed and imperfect, yet earnest and likable characters of Adam and Candy. Now movie audiences will have the same opportunity to follow their rocky ride through Hollywood, and all the laughs that go along with it.
+Title: La nuit du carrefour
+Genres: Mystery, Crime, Drama
+Overview: La Nuit du Carrefour (A Night at the Crossroads) may well be the least known of Jean Renoir's sound films. Adapted from a novel by Georges Simenon, the story concentrates on a gang of thieves who utilize a cross-road garage as the hideaway. During their last caper, the gang has accidentally murdered a jewel thief, and the heat is on. Winna Winifred, the beautiful ringleader of the gang, makes the fatal mistake of falling in love with Pierre Renoir (the director's brother), the detective who's been assigned to bring her in. The only one of Renoir's productions to thoroughly qualify as a "crime picture," La Nuit du Carrefour was often dismissed by the director, who felt that he was so successful in creating a "mysterious atmosphere" that no one understood what was going on (He did, however, enjoy working with Georges Simenon, who became a lifelong friend).
+============================================================
+Question: What's the plot of The Matrix?
+The Matrix is a story about sex and the rebirth of espionage.
+============================================================
+Question: Give me the soundtrack list from Guardians of the Galaxy.
+list of the soundtracks
+============================================================
+Question: How many Oscars did Forrest Gump win?
+four
+============================================================
+Question: Is 'Joker' suitable for teenagers?
+no
+============================================================
+Question: What are some must-watch classic films?
+First answer:
+a film
+Databse search results:
+Title: Urok literatury
+Genres: Comedy, Drama
+Overview: Feature film.
+Title: No Flesh Shall Be Spared
+Genres: Documentary
+Overview: Film about the making of the film Hardware.
+============================================================
+Question: Play the trailer for 'Avengers: Infinity War'.
+idk saada ah nassana
+============================================================
+Question: I'm in the mood for a comedy. Any suggestions?
+I'm in the mood for a comedy.
+============================================================
+Question: What films are based on Stephen King's books?
+First answer:
+Thriller
+Databse search results:
+Title: Sunburn
+Genres: Comedy, Action, Crime
+Overview: An enthralling &amp; action-packed comedy-thriller, full of blistering excitement.
+Title: The Elevator: Three Minutes Can Change Your Life
+Genres: Drama, Thriller
+Overview: A disturbing psychological thriller, that engages the audience to the point that it is always caught off guard, thus changing the point of view of the two main performers.
+============================================================
+Question: When was Schindler's List released?
+September 27, 2017
+============================================================
+Question: Find me a movie that will make me cry.
+First answer:
+a movie that will make me cry
+Databse search results:
+Title: The Indian Runner
+Genres: Drama
+Overview: An intensely sad film about two brothers who cannot overcome their opposite perceptions of life. One brother sees and feels bad in everyone and everything, subsequently he is violent, antisocial and unable to appreciate or enjoy the good things which his brother desperately tries to point out to him.
+Title: Lost in the Stars
+Genres: 
+Overview: Musical from the American Film Theatre series, based on the play Cry The Beloved Country.
+============================================================
+Question: What are the best sci-fi movies of the last decade?
+First answer:
+Sci-Fi
+Databse search results:
+Title: Third Guest
+Genres: Drama, Science Fiction
+Overview: Sci-fi end of the world drama
+Title: Hollywood between Paranoia and Sci-Fi. The Power of Myth
+Genres: Documentary
+Overview: Gives insight into the creators mindset and how they culled from real life events to create some of the biggest sci fi films of all time.
+============================================================
+Question: Which movies are in the Marvel Cinematic Universe?
+apocalypse
+============================================================
+Question: Tell me about the directorial style of Wes Anderson.
+Wes Anderson is a composer and director of the film "The Evangelical Church" and "St. Paul's Gospel".
+============================================================
+Question: How do I access movies on Netflix?
+Open the Netflix app and select "Show" from the dropdown menu.
+============================================================
+Question: Rate 'Mad Max: Fury Road' out of 10.
+0
+============================================================
